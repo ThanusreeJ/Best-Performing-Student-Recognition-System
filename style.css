@@ -1,0 +1,80 @@
+/* CSS file: style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #8b3333;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Background color */
+    background-image: url('image3.jpg'); /* Use the image directly if in the same folder */
+    background-size: cover; /* Adjusts image to cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #7E60BF;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: ;
+}
+
+h1 {
+    text-align: center;
+    color: #050404;
+    font-size: xx-large;
+    font-family: 'fredoka';
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: 'Alice';
+}
+
+select, button {
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 25px;
+    background-color: #E4B1F0;
+}
+
+button {
+    background-color:#4cae4c;
+    color: rgb(237, 235, 235);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #81c9f0;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+
+}
+
+table, th, td {
+    border: 1px solid #030303;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #E4B1F0;
+    color: #333;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Performing Student Recognition System</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Best Performing Student Recognition System</h1>
+        
+        <!-- Form to Get Top 3 Students -->
+        <form id="studentForm" method="POST" action="/calculate">
+            <label for="batch">Select Batch Year:</label>
+            <select id="batch" name="batch">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+            </select>
+            <button type="submit">Get Top 3 Students</button>
+        </form>
+
+        <div id="results">
+            <h2>Top 3 Students:</h2>
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>GPA</th>
+                        <th>Consistency Score</th>
+                        <th>Core Course Excellence</th>
+                        <th>Hackathons Participated</th>
+                        <th>Papers Presented</th>
+                        <th>Course Assistance</th>
+                        <th>Overall Ranking Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if top_students %}
+                        {% for student in top_students %}
+                            <tr>
+                                <td>{{ student.Student_ID }}</td>
+                                <td>{{ student.Name }}</td>
+                                <td>{{ student.GPA }}</td>
+                                <td>{{ student.Consistency_Score }}</td>
+                                <td>{{ student.Core_Course_Excellence }}</td>
+                                <td>{{ student.Hackathons_Participated }}</td>
+                                <td>{{ student.Papers_Presented }}</td>
+                                <td>{{ student.Course_Assistance }}</td>
+                                <td>{{ student.Overall_Ranking_Score }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="9">No students found for this batch.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Form to Add New Student -->
+        <h2>Add New Student:</h2>
+        <form method="POST" action="/add_student">
+            <label for="student_id">Student ID:</label>
+            <input type="text" id="student_id" name="student_id" required>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="batch_year">Batch Year:</label>
+            <input type="text" id="batch_year" name="batch_year" required>
+            <label for="gpa">GPA:</label>
+            <input type="number" step="0.01" id="gpa" name="gpa" required>
+            <label for="consistency_score">Consistency Score:</label>
+            <input type="number" id="consistency_score" name="consistency_score" required>
+            <label for="core_course_excellence">Core Course Excellence:</label>
+            <input type="number" id="core_course_excellence" name="core_course_excellence" required>
+            <label for="hackathons_participated">Hackathons Participated:</label>
+            <input type="number" id="hackathons_participated" name="hackathons_participated" required>
+            <label for="papers_presented">Papers Presented:</label>
+            <input type="number" id="papers_presented" name="papers_presented" required>
+            <label for="course_assistance">Course Assistance:</label>
+            <input type="number" id="course_assistance" name="course_assistance" required>
+            <label for="overall_ranking_score">Overall Ranking Score:</label>
+            <input type="number" step="0.01" id="overall_ranking_score" name="overall_ranking_score" required>
+            <button type="submit">Add Student</button>
+        </form>
+    </div>
+</body>
+</html>
